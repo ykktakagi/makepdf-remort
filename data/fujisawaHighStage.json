@@ -1,0 +1,18 @@
+{
+  "top": {
+    "propertyName": "藤沢ハイステージ",
+    "propertyCatch": "藤沢市羽鳥一丁目に位置する「藤沢ハイステージ」は、落ち着いた住宅街と利便性を兼ね備えた注目の物件です。駅からのアクセスも良好で、暮らしやすさが魅力です。",
+    "propertyLatitude": 35.31844789372353,
+    "propertyLongitude": 139.46360444600683,
+	  "prefectureCode": 14000,
+	  "prefecture": "神奈川県",
+	  "localGovCode": 14205,
+	  "localGov": "藤沢市"
+  },
+  "summary": {
+    "textTopRight": "「藤沢ハイステージ」は、都市の利便性と落ち着いた暮らしを両立できる物件です。生活施設が充実し、安心して暮らせる環境が整っています。",
+    "imageTopLeft": "/images/fujisawa01.jpg",
+    "textBottomLeft": "辻堂駅やテラスモール湘南が近く、買い物や外食が便利。駅まで平坦な道のりで、移動も快適です。暮らしを楽しめる立地が魅力です。",
+    "imageBottomRight": "/images/fujisawa02.jpg"
+  }
+}

@@ -1,0 +1,42 @@
+/* styles/print.css */
+
+/* 画面では隠す */
+.printFooter {
+  display: none;
+}
+
+@page {
+  size: A4 portrait;
+  margin: 10mm;
+}
+
+@media print {
+  /* 画面余白リセット */
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: white;
+  }
+
+  /* セクション毎に改ページ */
+  .section {
+    page-break-after: always;
+    break-inside: avoid;
+  }
+
+  /* 印刷ボタンを隠す */
+  .noPrint {
+    display: none !important;
+  }
+
+  /* 自前フッターを印刷時に表示 */
+  .printFooter {
+    display: block;
+    position: fixed;
+    right: 10mm;
+    bottom: 10mm;
+    text-align: right;
+    font-size: 10px;
+    color: #666;
+  }
+}

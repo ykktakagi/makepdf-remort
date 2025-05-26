@@ -1,0 +1,140 @@
+.container {
+  padding: 0mm;
+  width: 180mm;
+  }
+  
+  .title {
+    font-size: 16px;
+    margin-bottom: 4mm;
+    padding-bottom: 0mm;
+  }
+  
+  .chartWrapper {
+    position: relative;
+    width: 100%;
+    height: 60mm;
+  }
+  
+  .mainChart {
+    width: 60mm;
+    height: 60mm;
+    box-sizing: border-box;
+    position: relative; /* 相対位置での基準になる */
+    /* background-color: rgb(255, 255, 255); */
+  }
+  
+  .refChart {
+    position: absolute;
+    top: -3mm;     /* 少し上にずらす */
+    right: 0mm;  /* 少し右に飛び出させることで重なる */
+    width: 18mm;
+    height: 40mm;
+    box-sizing: border-box;
+    z-index: 10;   /* 前面に表示 */
+    /*background-color: white; */
+  }
+  
+  .mainChart .subTitle {
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 0mm;
+  }
+
+  .refChart .subTitle {
+    text-align: center;
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 0mm;
+  }
+  .description {
+    margin-top: 2mm;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #333;
+  }
+
+
+.subTitleMain {
+  font-size: 14px;       /* ← 小さめにしたい場合 */
+  font-weight: bold;     /* ← 太字にしたい場合 */
+  margin-bottom: 0mm;
+  padding-bottom: 0mm;
+  text-align: center;      /* 必要に応じて調整 */
+}
+
+.subTitleRef {
+  font-size: 12px;       /* ← 小さめにしたい場合 */
+  font-weight: bold;     /* ← 太字にしたい場合 */
+  margin-bottom: 0mm;
+  padding-bottom: 0mm;
+  text-align: center;      /* 必要に応じて調整 */
+}
+
+/* 複数比較 */
+.chartRow {
+  display: flex;
+  align-items: flex-end; /* ← ここが重要！下ぞろえに */
+  justify-content: center;
+  gap: 3px; /* 適度な間隔 */
+  flex-wrap: nowrap;
+}
+
+.chartItem {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.mainChartPoly {
+  width: 50mm;
+  height: 60mm;
+}
+
+.refChartPoly {
+  width: 20mm;
+  height: 50mm;
+}
+
+
+.refChartPolyPie {
+  width: 20mm;
+  height: 35mm;
+}
+.uniqueChart {
+  width: 75mm;
+  height: 75mm;
+  box-sizing: border-box;
+  position: relative; /* 相対位置での基準になる */
+  /* background-color: rgb(255, 255, 255); */
+}
+
+
+  
+.uniqueChart .subTitle {
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 0mm;
+}
+
+
+.uniqueChartWithLegend {
+  width: 140mm;
+  height: 75mm;
+  box-sizing: border-box;
+  position: relative; /* 相対位置での基準になる */
+  /* background-color: rgb(255, 255, 255); */
+}
+
+
+  
+.uniqueChartWithLegend .subTitle {
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 0mm;
+}
+

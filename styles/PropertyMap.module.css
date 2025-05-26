@@ -1,0 +1,11 @@
+/* components/PropertyMap.module.css */
+.mapWrapper {
+    width: 100%;
+    height: 300px;
+  }
+  
+  .mapContainer {
+    width: 100%;
+    height: 100%;
+  }
+  

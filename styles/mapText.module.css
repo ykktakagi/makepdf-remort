@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 80mm;
+}
+
+.title {
+  font-size: 16px;
+  margin-bottom: 2mm;
+  padding-bottom: 0mm;
+  flex: 0 0 100%;
+}
+  
+.map {
+  flex: 0 0 66.66%;
+  height: 70mm;
+}
+  
+.info {
+  flex: 0 0 33.33%;
+  padding-left: 5mm;
+  box-sizing: border-box;
+}
+  
+.info h4 {
+  margin: 0 0 2mm;
+  font-size: 1rem;
+}
+  
+.info p {
+  margin: 0.5mm 0;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+  
+.legend {
+  margin: 15px 0 0 0;
+  text-align: left;
+  display: block;
+  font-size: 0.875rem;
+}
+  
+.legend img {
+  width: 60%;
+  margin-top: 4px;
+}
+  
+  

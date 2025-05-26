@@ -1,0 +1,228 @@
+/* styles/Layout.module.css */
+.page {
+    width: 170mm; /* 210mmから左右20mm引いた値 */
+    min-height: 277mm; /* 297mmから上下10mm引いた値 */
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    background: white;
+    font-family: sans-serif;
+  }
+  
+  .section {
+    margin-bottom: 20mm;
+    page-break-after: always; /* 印刷時に改ページ */
+  }
+  
+  .section h2 {
+    font-size: 24px;
+    margin-bottom: 5mm;
+    border-bottom: 6px solid #0c549c;
+    padding-bottom: 0mm;
+  }
+  
+  .section p {
+    margin-bottom: 4mm;
+    line-height: 1.5;
+  }
+  
+  .placeholder {
+    /* background: #ee; */
+    /* border: 1px dashed #ccc; */
+    height: 80mm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    margin-bottom: 4mm;
+  }
+  
+  .annotation,
+  .source {
+    font-size: 10px;
+    line-height: 1.4;
+    margin-bottom: 2mm;
+  }
+  
+  .annotation {
+    color: #555;
+  }
+  
+  .source {
+    color: #333;
+    border-top: 1px solid #999;
+    padding-top: 2mm;
+  }
+
+
+/***************** ページ全体 ******************/
+
+/* 見出し下の太めライン */
+.titleUnderline2 {
+    display: block;
+    width: 100%;
+    border-bottom: 10px solid #003366;  /* 直接指定 */
+    padding-bottom: 4mm;
+    margin-bottom: 8mm;
+  }
+  
+  /* ２段目直前の細めライン */
+  .divider
+   {
+    width: 100%;
+    border-top: 3px solid #527ca5;  /* ← 印刷にも出る罫線 */
+    margin: 6mm 0;
+  }
+  
+  
+/***************** ページ全体（ここまで） ******************/
+
+
+/* 地図・グラフエリアのカラム設定 */
+
+/* 全幅１カラム行 */
+.layoutRowFull {
+    display: flex;
+    width: 100%;
+    height: 80mm;
+    box-sizing: border-box;
+    margin-bottom: 8mm;
+  }
+  .layoutRowFull .placeholder {
+    width: 100%;
+    height: 80mm; /* 必要に応じて調整 */
+  }
+
+/* ２カラム行 */
+.layoutRowSplit {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 15mm;              /* 間隔を 8→4mm に狭め */
+    align-items: flex-start; /* 上辺を揃える */
+  }
+  
+  .layoutRowSplit > .placeholder {
+    flex: 1;       /* 2つ並べて 50%:50% */
+    min-width: 0;  /* コンテンツ幅で崩れないように */
+    height: 95mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* 中身を上端に揃える */
+    overflow: hidden;  
+    box-sizing: border-box;
+  }
+
+  .layoutRowSplit > .placeholder > * {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* 画像コンテナを幅比 6 */
+  .imageContainer {
+    flex: 6;
+    box‑sizing: border‑box;
+  }
+  .imageContainer img {
+    width: 100%;
+    height: auto;
+    object‑fit: cover;
+    /* max‑height: 60mm; 必要なら調整 */
+  }
+  
+  /* テキストブロックを幅比 4 */
+  .textBlock {
+    flex: 4;
+    box‑sizing: border‑box;
+    padding: 4mm;
+    font‑size: 12px;
+    line‑height: 1.5;
+  }
+
+  
+  /* 内部でレイアウトするコンポーネントを縦に積むだけのラッパー */
+.layoutBlock {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 8mm;
+  }
+
+
+
+/* 上段・下段 共通 : flex row にする */
+.rowImageText,
+.rowTextImage {
+  display: flex;
+  align-items: flex-start; /* 親で上辺を揃える */
+  gap: 4mm;                /* 画像とテキストの間隔 */
+}
+
+/* 子要素を上辺に揃える */
+.rowImageText .imageContainer,
+.rowImageText .textBlock,
+.rowTextImage .imageContainer,
+.rowTextImage .textBlock {
+  align-self: flex-start;
+}
+
+/* ── 上段：画像(左) → テキスト(右) ── */
+.rowImageText {
+  margin-bottom: 12mm;     /* 下段とのスペース */
+}
+.rowImageText .imageContainer {
+  flex: none;              /* 固定幅化 */
+  width: 60%;
+  max-width: 60%;
+}
+.rowImageText .textBlock {
+  flex: none;
+  width: 40%;
+  max-width: 40%;
+  text-align: left;        /* 内部テキストは左揃え */
+  padding: 0;              /* 余白不要 */
+}
+
+/* ── 下段：テキスト(左) → 画像(右) ── */
+.rowTextImage {
+  margin-bottom: 8mm;      /* 注釈前のスペース */
+}
+.rowTextImage .textBlock {
+  flex: none;
+  width: 50%;
+  max-width: 50%;
+  text-align: left;
+  padding: 0;
+}
+.rowTextImage .imageContainer {
+  flex: none;
+  width: 50%;
+  max-width: 50%;
+}
+
+/* テキストブロック内の段落マージンをリセット（必要に応じて下マージンを残す） */
+.textBlock p {
+  margin: 0 0 0.5em 0;
+}
+
+/* 画像がはみ出さないように */
+.imageContainer img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+
+
+/* 印刷時に .section ごとに改ページ */
+@media print {
+    .section {
+      page-break-after: always;
+      break-inside: avoid;
+    }
+    /* 「印刷／PDF出力」ボタンは印刷時に隠す */
+    .noPrint {
+      display: none !important;
+    }
+  }
