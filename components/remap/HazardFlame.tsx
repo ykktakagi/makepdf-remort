@@ -68,11 +68,6 @@ const HazardFlame: React.FC<HazardFlameProps> = ({
           propertyName={propertyName}
           latitude={propertyLatitude}
           longitude={propertyLongitude}
-          prefectureCode={prefectureCode}
-          prefecture={prefecture}
-          localGovCode={localGovCode}
-          localGov={localGov}
-          color={colorScheme[`color${activeTab + 1}`]}
         />
       </div>
     </div>

@@ -1,4 +1,20 @@
-export const geomorphologyNaturalData14_16: Record<string, { codes: string[]; color: string }> = {
+// components/remap/Hazard/geomorphologyData.ts
+
+export interface GeomorphologyInfo {
+  /** 土地利用コード一覧 */
+  codes: string[]
+  /** 表示色（RGBA形式） */
+  color: string
+  /** 地形の特徴説明 */
+  landFormation: string
+  /** 土砂災害リスク説明 */
+  risk: string
+}
+/**
+ * 自然地形に関する情報マッピング
+ * キーは地形カテゴリ名、値はその詳細情報
+ */
+export const geomorphologyNaturalData14_16: Record<string, GeomorphologyInfo> = {
   "【自然地形】山地斜面等": {
     codes: ["10101","11201","11202","11203","11204","1010101"],
     color: "rgba(217, 203, 174, 0.5)",
@@ -103,7 +119,7 @@ export const geomorphologyNaturalData14_16: Record<string, { codes: string[]; co
   }
 };
 
-export const geomorphologyArtificialData14_16: Record<string, { codes: string[]; color: string }> = {
+export const geomorphologyArtificialData14_16: Record<string, GeomorphologyInfo> = {
   "【人工地形】切土地": {
     codes: ["11001","11003","11009","11011","4010301"],
     color: "rgba(133, 196, 209, 0.55)",

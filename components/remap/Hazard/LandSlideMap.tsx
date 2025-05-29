@@ -4,7 +4,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import { ImageS3URL } from '../../../config';
 import styles from '../../../styles/remap.module.css';
 
-export interface SpotMapProps {
+export interface LandslideMapProps {
   propertyName: string;
   latitude: number;
   longitude: number;
@@ -53,7 +53,7 @@ const landslideExplaines: Record<string, {
   }
 };
 
-const LandslideMap: React.FC<SpotMapProps> = ({ propertyName, latitude, longitude }) => {
+const LandslideMap: React.FC<LandslideMapProps> = ({ propertyName, latitude, longitude }) => {
   const mapRef = useRef<maplibregl.Map | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeLayers, setActiveLayers] = useState<string[]>([

@@ -4,7 +4,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import { ImageS3URL } from '../../../config';
 import styles from '../../../styles/remap.module.css';
 
-export interface SpotMapProps {
+export interface SurgeMapProps {
   propertyName: string;
   latitude: number;
   longitude: number;
@@ -30,7 +30,7 @@ const surgeExplaines: Record<string, {
   }
 };
 
-const SurgeMap: React.FC<SpotMapProps> = ({ propertyName, latitude, longitude }) => {
+const SurgeMap: React.FC<SurgeMapProps> = ({ propertyName, latitude, longitude }) => {
   const mapRef = useRef<maplibregl.Map | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeLayers, setActiveLayers] = useState<string[]>([

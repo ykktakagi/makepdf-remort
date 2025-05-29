@@ -4,11 +4,12 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import { ImageS3URL } from '../../../config'
 import styles from '../../../styles/remap.module.css';
 
-export interface SpotMapProps {
-  propertyName: string;
-  latitude: number;
-  longitude: number;
+export interface FloodMapProps {
+  propertyName: string
+  latitude:     number
+  longitude:    number
 }
+
 
 const floodTileLayers: Record<string, string> = {
   '洪水浸水想定区域（想定最大規模）':
@@ -80,7 +81,7 @@ const floodExplains: Record<string, {
   },
 };
 
-const FloodMap: React.FC<SpotMapProps> = ({ propertyName, latitude, longitude }) => {
+const FloodMap: React.FC<FloodMapProps> = ({ propertyName, latitude, longitude }) => {
   const mapRef = useRef<maplibregl.Map | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeLayers, setActiveLayers] = useState<string[]>([

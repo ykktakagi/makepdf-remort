@@ -9,7 +9,7 @@ import {
   geomorphologyExplains,
 } from './geomorphologyData'
 
-export interface SpotMapProps {
+export interface GeomorphologyMapProps {
   propertyName: string
   latitude: number
   longitude: number
@@ -47,7 +47,7 @@ function getTileRange(
   return { xMin, xMax, yMin, yMax }
 }
 
-const GeomorphologyMap: React.FC<SpotMapProps> = ({
+const GeomorphologyMap: React.FC<GeomorphologyMapProps> = ({
   propertyName,
   latitude,
   longitude,

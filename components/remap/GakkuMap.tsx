@@ -5,17 +5,23 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 import { ImageS3URL } from '../../config'
 import styles from '../../styles/remap.module.css'
 import * as turf from '@turf/turf'
+import {
+  FeatureCollection,
+  Geometry,
+  GeoJsonProperties,
+  Polygon as GeoJSONPolygon
+} from 'geojson'
 
 export interface GakkuMapProps {
-  propertyName:   string;
-  latitude:       number;
-  longitude:      number;
-  prefectureCode: number;
-  prefecture:   string;
-  localGovCode: number;
-  localGov:   string;
-  level:          'elementary' | 'juniorHigh';
-  color:          string;
+  propertyName:   string
+  latitude:       number
+  longitude:      number
+  prefectureCode: number
+  prefecture:     string
+  localGovCode:   number
+  localGov:       string
+  level:          'elementary' | 'juniorHigh'
+  color:          string
 }
 
 // 色を20%明るくするヘルパー
@@ -29,7 +35,9 @@ function lightenHex(hex: string, amount = 0.2) {
   r = Math.round(r + (255 - r) * amount)
   g = Math.round(g + (255 - g) * amount)
   b = Math.round(b + (255 - b) * amount)
-  return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`
+  return `#${((1 << 24) + (r << 16) + (g << 8) + b)
+    .toString(16)
+    .slice(1)}`
 }
 
 // 色を濃くするヘルパー
@@ -43,18 +51,9 @@ function darkenHex(hex: string, amount = 0.2) {
   r = Math.round(r * (1 - amount))
   g = Math.round(g * (1 - amount))
   b = Math.round(b * (1 - amount))
-  return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`
-}
-
-
-const lon2tile = (lon: number, z: number) =>
-  Math.floor(((lon + 180) / 360) * 2 ** z)
-const lat2tile = (lat: number, z: number) => {
-  const rad = (lat * Math.PI) / 180
-  return Math.floor(
-    ((1 - Math.log(Math.tan(rad) + 1 / Math.cos(rad)) / Math.PI) / 2) *
-      2 ** z
-  )
+  return `#${((1 << 24) + (r << 16) + (g << 8) + b)
+    .toString(16)
+    .slice(1)}`
 }
 
 const GakkuMap: React.FC<GakkuMapProps> = ({
@@ -67,8 +66,8 @@ const GakkuMap: React.FC<GakkuMapProps> = ({
   level,
   color,
 }) => {
-  const containerRef  = useRef<HTMLDivElement>(null)
-  const mapRef        = useRef<maplibregl.Map>()
+  const containerRef = useRef<HTMLDivElement>(null)
+  const mapRef = useRef<maplibregl.Map | null>(null)
   const schoolMarkers = useRef<maplibregl.Marker[]>([])
 
   // 1) MapLibre 初期化（1度だけ）
@@ -95,95 +94,92 @@ const GakkuMap: React.FC<GakkuMapProps> = ({
   }, [longitude, latitude])
 
   // 2) 学区ポリゴンの取得＆描画
-// 2) 学区ポリゴンの取得＆描画
-useEffect(() => {
-  if (!mapRef.current) return
-  const map = mapRef.current
-  const url =
-    level === 'juniorHigh'
-      ? `${ImageS3URL}geojson/gakku_juniorhigh/A32-23_${prefectureCode}.geojson`
-      : `${ImageS3URL}geojson/gakku_elementary/A27-23_${prefectureCode}.geojson`
-
-  fetch(url)
-    .then(r => {
-      if (!r.ok) throw new Error(`polygon fetch failed ${r.status}`)
-      return r.json()
-    })
-    .then((data: any) => {
-      const fc = { type: 'FeatureCollection', features: data.features || [] }
-
-      // すべてのポリゴンを通常レイヤーに表示
-      if (!map.getSource('gakku-geo')) {
-        map.addSource('gakku-geo', { type: 'geojson', data: fc })
-        map.addLayer({
-          id: 'gakku-fill',
-          type: 'fill',
-          source: 'gakku-geo',
-          paint: { 'fill-color': color, 'fill-opacity': 0.4 },
-        })
-        map.addLayer({
-          id: 'gakku-line',
-          type: 'line',
-          source: 'gakku-geo',
-          paint: { 'line-color': color, 'line-width': 4 },
-        })
-      } else {
-        const src = map.getSource('gakku-geo') as maplibregl.GeoJSONSource
-        src.setData(fc)
-        map.setPaintProperty('gakku-fill', 'fill-color', color)
-        map.setPaintProperty('gakku-line', 'line-color', color)
-      }
-
-      // 物件の位置に該当するポリゴンだけ抽出して別レイヤーで上描き
-      const inside = fc.features.filter(f => {
-        if (!f.geometry) return false
-        try {
-          const poly = turf.polygon(f.geometry.coordinates)
-          return turf.booleanPointInPolygon(
-            turf.point([longitude, latitude]),
-            poly
-          )
-        } catch {
-          return false
-        }
-      })
-
-      if (inside.length > 0) {
-        const highlight = {
-          type: 'FeatureCollection',
-          features: inside,
-        }
-
-        const highlightColor = darkenHex(color, 0.01)
-
-        if (!map.getSource('gakku-highlight')) {
-          map.addSource('gakku-highlight', { type: 'geojson', data: highlight })
-          map.addLayer({
-            id: 'gakku-highlight',
-            type: 'fill',
-            source: 'gakku-highlight',
-            paint: {
-              'fill-color': highlightColor,
-              'fill-opacity': 0.6,
-            },
-          })
-        } else {
-          const src = map.getSource('gakku-highlight') as maplibregl.GeoJSONSource
-          src.setData(highlight)
-          map.setPaintProperty('gakku-highlight', 'fill-color', highlightColor)
-        }
-      }
-    })
-    .catch(console.error)
-}, [level, prefectureCode, color, latitude, longitude])
-
-
-  // 3) 学校ポイントの取得＆マーカー配置
   useEffect(() => {
     if (!mapRef.current) return
     const map = mapRef.current
+    const url =
+      level === 'juniorHigh'
+        ? `${ImageS3URL}geojson/gakku_juniorhigh/A32-23_${prefectureCode}.geojson`
+        : `${ImageS3URL}geojson/gakku_elementary/A27-23_${prefectureCode}.geojson`
 
-    // 既存マーカーをクリア
+    fetch(url)
+      .then(r => {
+        if (!r.ok) throw new Error(`polygon fetch failed ${r.status}`)
+        return r.json()
+      })
+      .then((data: any) => {
+        if (data.type !== 'FeatureCollection' || !Array.isArray(data.features)) {
+          throw new Error('Invalid GeoJSON format')
+        }
+        const fc = data as FeatureCollection<Geometry, GeoJsonProperties>
+
+        // 通常レイヤー描画
+        if (!map.getSource('gakku-geo')) {
+          map.addSource('gakku-geo', { type: 'geojson', data: fc })
+          map.addLayer({
+            id: 'gakku-fill',
+            type: 'fill',
+            source: 'gakku-geo',
+            paint: { 'fill-color': color, 'fill-opacity': 0.4 },
+          })
+          map.addLayer({
+            id: 'gakku-line',
+            type: 'line',
+            source: 'gakku-geo',
+            paint: { 'line-color': color, 'line-width': 4 },
+          })
+        } else {
+          const src = map.getSource('gakku-geo') as maplibregl.GeoJSONSource
+          src.setData(fc)
+          map.setPaintProperty('gakku-fill', 'fill-color', color)
+          map.setPaintProperty('gakku-line', 'line-color', color)
+        }
+
+        // 物件内ポリゴン抽出
+        const inside = fc.features.filter(f => {
+          const geom = f.geometry
+          if (!geom || geom.type !== 'Polygon') return false
+          try {
+            const coords = (geom as GeoJSONPolygon).coordinates
+            const poly = turf.polygon(coords)
+            return turf.booleanPointInPolygon(
+              turf.point([longitude, latitude]),
+              poly
+            )
+          } catch {
+            return false
+          }
+        })
+
+        // ハイライト描画
+        if (inside.length > 0) {
+          const highlight: FeatureCollection<Geometry, GeoJsonProperties> = {
+            type: 'FeatureCollection',
+            features: inside,
+          }
+          const highlightColor = darkenHex(color, 0.01)
+          if (!map.getSource('gakku-highlight')) {
+            map.addSource('gakku-highlight', { type: 'geojson', data: highlight })
+            map.addLayer({
+              id: 'gakku-highlight',
+              type: 'fill',
+              source: 'gakku-highlight',
+              paint: { 'fill-color': highlightColor, 'fill-opacity': 0.6 },
+            })
+          } else {
+            const src = map.getSource('gakku-highlight') as maplibregl.GeoJSONSource
+            src.setData(highlight)
+            map.setPaintProperty('gakku-highlight', 'fill-color', highlightColor)
+          }
+        }
+      })
+      .catch(console.error)
+  }, [level, prefectureCode, color, latitude, longitude])
+
+  // 3) 学校ポイント＆マーカー配置
+  useEffect(() => {
+    if (!mapRef.current) return
+    const map = mapRef.current
     schoolMarkers.current.forEach(m => m.remove())
     schoolMarkers.current = []
 
@@ -199,10 +195,7 @@ useEffect(() => {
             : data.type === 'Feature'
             ? [data]
             : []
-
-        // レベルに合わせた種別コード
         const targetCode = level === 'elementary' ? '16001' : '16002'
-        // 管理者コード→プレフィックス
         const labelMap: Record<string,string> = {
           '1': '（国立）',
           '2': `（${prefecture}立）`,
@@ -214,23 +207,19 @@ useEffect(() => {
           .filter(f => f.properties?.P29_003 === targetCode)
           .forEach(f => {
             const mgr = String(f.properties?.P29_006)
-            if (mgr === '0') return  // その他は表示しない
-
-            const prefix    = labelMap[mgr] || ''
+            if (mgr === '0') return
+            const prefix = labelMap[mgr] || ''
             const isPrivate = mgr === '4'
-            const bgColor   = isPrivate ? lightenHex(color, 0.3) : color
-            const name      = String(f.properties?.P29_004 || '')
-
-            const baseSize   = 26
+            const bgColor = isPrivate ? lightenHex(color, 0.3) : color
+            const name = String(f.properties?.P29_004 || '')
+            const baseSize = 26
             const markerSize = isPrivate ? Math.round(baseSize * 0.9) : baseSize
-            // マーカー要素
             const el = document.createElement('div')
             el.className = styles.schoolMarker
-            el.style.width           = `${markerSize}px`
-            el.style.height          = `${markerSize}px`
+            el.style.width = `${markerSize}px`
+            el.style.height = `${markerSize}px`
             el.style.backgroundColor = bgColor
-            el.innerText             = level === 'elementary' ? '小' : '中'
-
+            el.innerText = level === 'elementary' ? '小' : '中'
             const m = new maplibregl.Marker({ element: el, anchor: 'bottom' })
               .setLngLat(f.geometry.coordinates as [number, number])
               .setPopup(
@@ -238,22 +227,20 @@ useEffect(() => {
                   .setText(`${prefix}\n${name}`)
               )
               .addTo(map)
-
             schoolMarkers.current.push(m)
           })
       })
       .catch(console.error)
   }, [prefectureCode, level, color])
 
-  // 4) 物件マーカー + ツールチップ
+  // 4) 物件マーカー＋ツールチップ
   useEffect(() => {
     if (!mapRef.current) return
     const map = mapRef.current
     const el = document.createElement('img')
-    el.src    = '/icons/icon_mansion.png'
-    el.style.width  = '28px'
+    el.src = '/icons/icon_mansion.png'
+    el.style.width = '28px'
     el.style.height = '38px'
-
     const marker = new maplibregl.Marker({ element: el, anchor: 'bottom' })
       .setLngLat([longitude, latitude])
     const popup = new maplibregl.Popup({
@@ -262,7 +249,6 @@ useEffect(() => {
       closeOnClick: false,
       anchor: 'top',
     }).setText(propertyName)
-
     marker.setPopup(popup).addTo(map)
     popup.addTo(map)
   }, [propertyName, latitude, longitude])

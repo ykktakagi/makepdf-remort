@@ -5,7 +5,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import { ImageS3URL } from '../../../config';
 import styles from '../../../styles/remap.module.css';
 
-export interface SpotMapProps {
+export interface TsunamiMapProps {
   propertyName: string;
   latitude: number;
   longitude: number;
@@ -32,7 +32,7 @@ const tsunamiExplaines: Record<string, {
   },
 };
 
-const TsunamiMap: React.FC<SpotMapProps> = ({ propertyName, latitude, longitude }) => {
+const TsunamiMap: React.FC<TsunamiMapProps> = ({ propertyName, latitude, longitude }) => {
   const mapRef = useRef<maplibregl.Map | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
