@@ -7,14 +7,15 @@ import styles from '../../styles/remap.module.css'
 import * as turf from '@turf/turf'
 
 export interface GakkuMapProps {
-  propertyName:   string
-  latitude:       number
-  longitude:      number
-  prefectureCode: number
-  prefecture:   string
-  localGov:   string
-  level:          'elementary' | 'juniorHigh'
-  color:          string
+  propertyName:   string;
+  latitude:       number;
+  longitude:      number;
+  prefectureCode: number;
+  prefecture:   string;
+  localGovCode: number;
+  localGov:   string;
+  level:          'elementary' | 'juniorHigh';
+  color:          string;
 }
 
 // 色を20%明るくするヘルパー
