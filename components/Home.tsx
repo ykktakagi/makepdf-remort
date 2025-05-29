@@ -74,7 +74,7 @@ export default function Home() {
         印刷／PDF出力
       </button>
 
-      {/* FacilityInfo を描画するセクション */}aaa
+      {/* FacilityInfo を描画するセクション */}
       <section className={`${styles.remapSection}`}>
         <h2 className={styles.titleUnderline}>周辺施設情報</h2>
         <div>
