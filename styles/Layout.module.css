@@ -226,3 +226,11 @@
       display: none !important;
     }
   }
+
+
+
+  /* remap用の高さ */
+  .remapSection {
+  height: 600px;
+  width: 100%;
+}

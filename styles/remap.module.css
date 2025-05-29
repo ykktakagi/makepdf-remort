@@ -1,0 +1,225 @@
+/* styles/remap.module.css */
+
+/* ─── レイアウト ─── */
+.facilityInfoContainer {
+  margin-top: 20px;
+  min-height: 100%;
+}
+
+/* ─── トップボタン群 ─── */
+.buttonRow {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.topButton {
+  width: 80px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: #fff;
+  border: 2px solid;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: 'Noto Sans JP', sans-serif;
+  line-height: 20px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+/* 選択状態のボタン（背景色と文字色を反転） */
+.topButtonSelected {
+  background-color: var(--btn-color);
+  color: #fff;
+}
+
+/* 非選択状態のボタン（文字色を色指定） */
+.topButtonUnselected {
+  background-color: #fff;
+  color: var(--btn-color);
+}
+
+
+/* ─── 下部エリア ─── */
+/* タブをまとめる行 */
+.tabRow {
+  display: flex;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+}
+
+/* 各タブアイテム */
+.tabItem {
+  flex: 1;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  /* 色はカスタムプロパティで受け取る */
+  border: 1px solid var(--tab-border);
+  background-color: var(--tab-bg);
+  color: var(--tab-color);
+  /* もしホバーのスタイルなどを足したいならここに */
+}
+
+
+.bottomArea {
+  width: 100%;
+  height: 400px;    /* ここを FacilityEnvironment の地図と同じ 400px に */
+  margin-top: 0px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+
+/* ダミー FacilityEnvironment */
+.facilityEnvDummy {
+  width: 100%;
+  height: 100%;
+  background-color: #87cefa; /* 空色 (light sky blue) */
+  color: #fff;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.facilityEnvWrapper {
+  width: 100%;
+}
+
+.tabContainer {
+  display: flex;
+  height: 50px;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  line-height: 50px;
+  border: 1px solid #888;
+  color: #333;
+  cursor: pointer;
+}
+
+.activeTab {
+  background-color: #ddd;
+  font-weight: bold;
+}
+
+.mapContainer {
+  width: 100%;
+  height: 400px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ccc;
+}
+
+
+/* 学校マーカーのベーススタイル */
+.schoolMarkerWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none; /* ラベルやマーカーがマウスイベントをブロックしないように */
+}
+
+.label {
+  background-color: rgba(255, 255, 255, 0.95); /* 少し透過した白で読みやすく */
+  color: #000;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1.2;
+  padding: 3px 6px;
+  border-radius: 4px;
+  border: 1px solid #666;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* 影で浮かせる */
+  white-space: nowrap;
+  margin-bottom: 6px;
+  max-width: 150px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+}
+
+
+.schoolMarker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  text-align: center;
+  pointer-events: auto;
+}
+
+
+
+/* 施設マーカーのベーススタイル */
+.spotWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+
+.spotLabel {
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #666;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1.2;
+  padding: 3px 6px;
+  border-radius: 4px;
+  /* border: 1px solid #666; */
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+  margin-bottom: 3px;
+  max-width: none; /* ← ここで幅制限なし */
+  text-align: center;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.spotMarker {
+  width: 30px;
+  height: 33px;
+  pointer-events: auto;
+}
+
+
+
+/* 防災のベーススタイル */
+.explanationBox {
+  padding: 8px 12px;
+  font-size: 13px;
+  background: #f8f8f8;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+.explanationBox img {
+  width: 120px;
+  margin-bottom: 6px;
+}
+
+.explanationBox a {
+  display: inline-block;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.explanationBox a:hover {
+  color: #0056b3;
+}
+
+
+.maplibregl-popup-close-button {
+  top: 10px !important;
+  right: 10px !important;
+}

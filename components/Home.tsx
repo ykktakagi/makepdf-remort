@@ -5,6 +5,25 @@ import styles from '../styles/Layout.module.css';
 import ChartWrapper from '../components/ChartWrapper';
 import ImageTextBlock from '../components/ImageTextBlock';
 const MapWrapperNoSSR = dynamic(() => import('./MapWrapper'), { ssr: false });
+const FacilityInfoNoSSR = dynamic(
+  () => import('./remap/FacilityInfo'),
+  { ssr: false }
+);
+// 直接 FacilityEnvironment を動的インポート
+import remapColors from '../styles/remapColor.json';
+const FacilityEnvNoSSR = dynamic(
+  () => import('./remap/FacilityEnvironment'),
+  { ssr: false }
+);
+
+const remapColorsInline = {
+  color1: '#D17D68',
+  color2: '#128688',
+  color3: '#4C5A97',
+  color4: '#FFC20E',
+  color5: '#AD3C3E',
+};
+
 
 interface StageData {
   propertyName:   string;
@@ -54,6 +73,34 @@ export default function Home() {
       >
         印刷／PDF出力
       </button>
+
+      {/* FacilityInfo を描画するセクション */}
+      <section className={`${styles.remapSection}`}>
+        <h2 className={styles.titleUnderline}>周辺施設情報</h2>
+        <div>
+          <FacilityInfoNoSSR
+            propertyName={stage.propertyName}
+            propertyLatitude={stage.propertyLatitude}
+            propertyLongitude={stage.propertyLongitude}
+            prefectureCode={stage.prefectureCode}
+            prefecture={stage.prefecture}
+            localGovCode={stage.localGovCode}
+            localGov={stage.localGov}
+            colorScheme={remapColorsInline}
+          />
+        </div>
+      </section>
+
+      {/* 直接 FacilityEnvironment を表示するセクション */}
+      <section className={styles.remapSection}>
+        <h2 className={styles.titleUnderline}>周辺施設詳細</h2>
+        <FacilityEnvNoSSR
+          propertyName={stage.propertyName}
+          propertyLatitude={stage.propertyLatitude}
+          propertyLongitude={stage.propertyLongitude}
+          colorScheme={remapColors}        // JSON から読み込んだ色設定を渡す
+        />
+      </section>
 
       <section className={styles.section}>
         <h2 className={styles.titleUnderline}>サンプル</h2>

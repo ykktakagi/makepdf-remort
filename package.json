@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@module-federation/nextjs-mf": "^8.8.25",
+    "@turf/helpers": "^7.2.0",
+    "@turf/turf": "^7.2.0",
+    "@turf/union": "^7.2.0",
     "leaflet": "^1.9.4",
     "leaflet-routing-machine": "^3.2.12",
     "maplibre-gl": "^5.4.0",

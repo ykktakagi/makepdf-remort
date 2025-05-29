@@ -1,0 +1,109 @@
+{
+"練馬ハイステージ": {
+"公共・医療": [
+{"spot_name": "関区民事務所","spot_cat": "city_office","spot_latitude": 35.724492,"spot_longitude": 139.577665 },
+{"spot_name": "練馬区立関町図書館","spot_cat": "library","spot_latitude": 35.72154,"spot_longitude": 139.58051 },
+{"spot_name": "練馬関町郵便局","spot_cat": "post office","spot_latitude": 35.7232,"spot_longitude": 139.574771 },
+{"spot_name": "石神井警察署武蔵関駅前交番","spot_cat": "city_office","spot_latitude": 35.727303,"spot_longitude": 139.576614 },
+{"spot_name": "医療法人社団　はなぶさ会　島村記念病院","spot_cat": "hospital","spot_latitude": 35.7233,"spot_longitude": 139.573956 },
+{"spot_name": "医療法人社団　遼山会　関町病院","spot_cat": "hospital","spot_latitude": 35.723829,"spot_longitude": 139.57821 },
+{"spot_name": "関町耳鼻咽喉科・アレルギー科","spot_cat": "hospital","spot_latitude": 35.727017,"spot_longitude": 139.576205 },
+{"spot_name": "医療法人社団　こいし会　関町ゆいクリニック","spot_cat": "hospital","spot_latitude": 35.726557,"spot_longitude": 139.576483 },
+{"spot_name": "増田整形外科医院","spot_cat": "hospital","spot_latitude": 35.725862,"spot_longitude": 139.57319 },
+{"spot_name": "加藤クリニック","spot_cat": "hospital","spot_latitude": 35.726937,"spot_longitude": 139.576583 },
+{"spot_name": "西武鉄道武蔵関駅","spot_cat": "access_rail","spot_latitude": 35.72754,"spot_longitude": 139.57721 },
+{"spot_name": "西武鉄道東伏見駅","spot_cat": "access_rail","spot_latitude": 35.72868,"spot_longitude": 139.56435 },
+{"spot_name": "練馬区「武蔵関駅南口」停留所","spot_cat": "access_bus","spot_latitude": 35.727154,"spot_longitude": 139.576303 }
+],
+"教育・子育て": [
+{"spot_name": "にじいろ保育園関町北","spot_cat": "kinder","spot_latitude": 35.726612,"spot_longitude": 139.575272 },
+{"spot_name": "キッズガーデン練馬関町","spot_cat": "kinder","spot_latitude": 35.726288,"spot_longitude": 139.577174 },
+{"spot_name": "関町ちぐさ幼稚園","spot_cat": "kinder","spot_latitude": 35.724601,"spot_longitude": 139.574897 },
+{"spot_name": "関町白百合幼稚園","spot_cat": "kinder","spot_latitude": 35.729527,"spot_longitude": 139.573983 },
+{"spot_name": "愛里武蔵関保育園","spot_cat": "kinder","spot_latitude": 35.729062,"spot_longitude": 139.571767 },
+{"spot_name": "ソラスト関町保育園","spot_cat": "kinder","spot_latitude": 35.728181,"spot_longitude": 139.578692 },
+{"spot_name": "ヤマハ音楽教室 カシス武蔵関センター","spot_cat": "gathering","spot_latitude": 35.728952,"spot_longitude": 139.577717 },
+{"spot_name": "関町児童館","spot_cat": "gathering","spot_latitude": 35.722494,"spot_longitude": 139.5722 },
+{"spot_name": "東京女子学院高等学校","spot_cat": "school","spot_latitude": 35.729017,"spot_longitude": 139.574307 },
+{"spot_name": "東京女子学院中学校","spot_cat": "school","spot_latitude": 35.728922,"spot_longitude": 139.573456 },
+{"spot_name": "東京三育小学校","spot_cat": "school","spot_latitude": 35.720365,"spot_longitude": 139.584777 },
+{"spot_name": "成蹊中学校","spot_cat": "school","spot_latitude": 35.715431,"spot_longitude": 139.572681 },
+{"spot_name": "練馬区立関町小学校","spot_cat": "school","spot_latitude": 35.725283036889678,"spot_longitude": 139.5721256281801},
+{"spot_name": "練馬区立石神井西中学校","spot_cat": "school","spot_latitude": 35.720684463,"spot_longitude": 139.5808267574501257968}
+],
+"公園・レジャー": [
+{"spot_name": "武蔵関公園","spot_cat": "nature","spot_latitude": 35.727543,"spot_longitude": 139.567133 },
+{"spot_name": "武蔵野中央公園","spot_cat": "nature","spot_latitude": 35.718879,"spot_longitude": 139.558443 },
+{"spot_name": "武蔵関駅前緑地","spot_cat": "nature","spot_latitude": 35.7265,"spot_longitude": 139.57782 },
+{"spot_name": "せきまち公園","spot_cat": "nature","spot_latitude": 35.7246,"spot_longitude": 139.57262 },
+{"spot_name": "関町北四丁目緑地","spot_cat": "nature","spot_latitude": 35.730482,"spot_longitude": 139.573687 },
+{"spot_name": "エニタイムフィットネス 武蔵関店","spot_cat": "sports","spot_latitude": 35.727521,"spot_longitude": 139.575482 },
+{"spot_name": "武蔵野プール","spot_cat": "sports","spot_latitude": 35.7188,"spot_longitude": 139.567748 }
+],
+"ショッピング": [
+{"spot_name": "まいばすけっと武蔵関駅南口店","spot_cat": "supermarket","spot_latitude": 35.727245,"spot_longitude": 139.576105 },
+{"spot_name": "三徳関町店(Santoku)","spot_cat": "supermarket","spot_latitude": 35.727909,"spot_longitude": 139.576669 },
+{"spot_name": "リコス関町北1丁目店(G7)","spot_cat": "supermarket","spot_latitude": 35.726001,"spot_longitude": 139.577399 },
+{"spot_name": "ココカラファイン関町店","spot_cat": "drugstore","spot_latitude": 35.727462,"spot_longitude": 139.575584 },
+{"spot_name": "ドラッグストアスマイル 武蔵関店","spot_cat": "drugstore","spot_latitude": 35.7279,"spot_longitude": 139.576841 },
+{"spot_name": "C’z PRO 練馬関町店","spot_cat": "drugstore","spot_latitude": 35.72207,"spot_longitude": 139.588018 },
+{"spot_name": "セブンイレブン 練馬関町北２丁目","spot_cat": "convenience","spot_latitude": 35.727504,"spot_longitude": 139.57515 }
+]
+},
+"house2": {
+"公共・医療": [
+{"spot_name": "佐野区民事務所","spot_latitude": 35.788135,"spot_longitude": 139.840211 },
+{"spot_name": "中川区民事務所","spot_latitude": 35.771757,"spot_longitude": 139.85001 },
+{"spot_name": "足立区立東和図書館","spot_latitude": 35.77142,"spot_longitude": 139.8398 },
+{"spot_name": "足立谷中三郵便局","spot_latitude": 35.781311,"spot_longitude": 139.834761 },
+{"spot_name": "綾瀬警察署","spot_latitude": 35.777904,"spot_longitude": 139.830619 },
+{"spot_name": "医療法人社団　栄悠会　あやせ循環器リハビリ病院","spot_latitude": 35.779517,"spot_longitude": 139.834685 },
+{"spot_name": "医療法人社団　栄悠会　綾瀬循環器病院","spot_latitude": 35.774773,"spot_longitude": 139.83322 },
+{"spot_name": "医療法人社団　栄悠会　あやせ循環器クリニック","spot_latitude": 35.778948,"spot_longitude": 139.834315 },
+{"spot_name": "医療法人社団　光靖会　井口腎泌尿器科・内科　北綾瀬","spot_latitude": 35.780769,"spot_longitude": 139.834762 },
+{"spot_name": "医療法人社団　OPC　北綾瀬とうわクリニック","spot_latitude": 35.776024,"spot_longitude": 139.836472 },
+{"spot_name": "おおしま内科クリニック","spot_latitude": 35.776513,"spot_longitude": 139.839804 },
+{"spot_name": "東京地下鉄北綾瀬駅","spot_latitude": 35.77725,"spot_longitude": 139.83211 },
+{"spot_name": "首都圏新都市鉄道六町駅","spot_latitude": 35.78394,"spot_longitude": 139.82171 },
+{"spot_name": "東日本旅客鉄道亀有駅","spot_latitude": 35.76697,"spot_longitude": 139.8486 },
+{"spot_name": "加平IC","spot_latitude": 35.778025,"spot_longitude": 139.824677 },
+{"spot_name": "東武バスセントラル「谷中三丁目」停留所","spot_latitude": 35.78108,"spot_longitude": 139.836904 }
+],
+"教育・子育て": [
+{"spot_name": "AIAI NURSERY 北綾瀬","spot_latitude": 35.778389,"spot_longitude": 139.832574 },
+{"spot_name": "東保育園","spot_latitude": 35.775444,"spot_longitude": 139.841294 },
+{"spot_name": "チェリー保育園","spot_latitude": 35.774646,"spot_longitude": 139.832853 },
+{"spot_name": "北綾瀬聖華保育園","spot_latitude": 35.773682,"spot_longitude": 139.834516 },
+{"spot_name": "大谷田第一保育園","spot_latitude": 35.778529,"spot_longitude": 139.843611 },
+{"spot_name": "足立北綾瀬雲母保育園","spot_latitude": 35.784072,"spot_longitude": 139.839471 },
+{"spot_name": "子供英会話 アミティー 亀有校","spot_latitude": 35.765741,"spot_longitude": 139.847648 },
+{"spot_name": "大谷田谷中児童館","spot_latitude": 35.780852,"spot_longitude": 139.838403 },
+{"spot_name": "東京都立足立東高等学校","spot_latitude": 35.78126,"spot_longitude": 139.845417 },
+{"spot_name": "足立区立中川小学校","spot_latitude": 35.78086224293,"spot_longitude": 139.841712531603 },
+{"spot_name": "足立区立谷中中学校","spot_latitude": 35.78004954238,"spot_longitude": 139.8356117}
+],
+"公園・レジャー": [
+{"spot_name": "中川公園","spot_latitude": 35.775836,"spot_longitude": 139.845548 },
+{"spot_name": "東綾瀬公園","spot_latitude": 35.770269,"spot_longitude": 139.832103 },
+{"spot_name": "大谷田公園","spot_latitude": 35.77837,"spot_longitude": 139.83784 },
+{"spot_name": "大谷田記念公園","spot_latitude": 35.78084,"spot_longitude": 139.83858 },
+{"spot_name": "谷中公園","spot_latitude": 35.77636,"spot_longitude": 139.83582 },
+{"spot_name": "足立区立郷土博物館","spot_latitude": 35.784354,"spot_longitude": 139.84172 },
+{"spot_name": "葛飾区亀有文化ホール","spot_latitude": 35.766581,"spot_longitude": 139.849568 },
+{"spot_name": "カーブス大谷田","spot_latitude": 35.777184,"spot_longitude": 139.838797 }
+],
+"ショッピング": [
+{"spot_name": "ピーンズ亀有","spot_latitude": 35.766667,"spot_longitude": 139.847652 },
+{"spot_name": "リリオ這有・リリオ壱番館・弐番館・参番館","spot_latitude": 35.766399,"spot_longitude": 139.849976 },
+{"spot_name": "西友北綾瀬店(SM)","spot_latitude": 35.775716,"spot_longitude": 139.836328 },
+{"spot_name": "ビッグ・エー足立谷中店(Big-A)","spot_latitude": 35.782207,"spot_longitude": 139.836798 },
+{"spot_name": "ワイズマート北綾瀬店","spot_latitude": 35.775975,"spot_longitude": 139.83208 },
+{"spot_name": "ドラッグセイムス 足立大谷田店","spot_latitude": 35.780425,"spot_longitude": 139.839056 },
+{"spot_name": "ドラッグセイムス 東和店","spot_latitude": 35.77488,"spot_longitude": 139.836094 },
+{"spot_name": "西松屋 足立大谷田店","spot_latitude": 35.781885,"spot_longitude": 139.840554 },
+{"spot_name": "コジマ×ビックカメラ 足立加平店","spot_latitude": 35.777976,"spot_longitude": 139.828768 },
+{"spot_name": "しまむら 加平店","spot_latitude": 35.778768,"spot_longitude": 139.825996 },
+{"spot_name": "セブンイレブン 足立大谷田４丁目","spot_latitude": 35.778045,"spot_longitude": 139.836687 }
+]
+}
+}

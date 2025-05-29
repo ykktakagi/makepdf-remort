@@ -1,13 +1,13 @@
 {
   "top": {
-    "propertyName": "藤沢ハイステージ",
-    "propertyCatch": "藤沢市羽鳥一丁目に位置する「藤沢ハイステージ」は、落ち着いた住宅街と利便性を兼ね備えた注目の物件です。駅からのアクセスも良好で、暮らしやすさが魅力です。",
-    "propertyLatitude": 35.31844789372353,
-    "propertyLongitude": 139.46360444600683,
-	  "prefectureCode": 14000,
-	  "prefecture": "神奈川県",
-	  "localGovCode": 14205,
-	  "localGov": "藤沢市"
+    "propertyName": "練馬ハイステージ",
+    "propertyCatch": "東京都練馬区関町北２丁目に位置する「藤沢ハイステージ」は、落ち着いた住宅街と利便性を兼ね備えた注目の物件です。駅からのアクセスも良好で、暮らしやすさが魅力です。",
+    "propertyLatitude": 35.72674014,
+    "propertyLongitude": 139.5746728,
+	  "prefectureCode": 13,
+	  "prefecture": "東京都",
+	  "localGovCode": 13120,
+	  "localGov": "練馬区"
   },
   "summary": {
     "textTopRight": "「藤沢ハイステージ」は、都市の利便性と落ち着いた暮らしを両立できる物件です。生活施設が充実し、安心して暮らせる環境が整っています。",
